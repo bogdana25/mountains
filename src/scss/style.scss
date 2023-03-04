@@ -1,0 +1,398 @@
+@import "fonts";
+
+// Переменные цветов
+$color1: #FFFFFF;
+$color2: #FBD784;
+$bg: #0B1D26;
+// Переменные шрифтов
+$f1: ChronicleDisp;
+$f2: Chronicle Display Semibold;
+$f3: Gilroy;
+
+@mixin flex($display, $justify, $align) {
+  display: $display;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin text($font, $size, $color) {
+  font-family: $font;
+  font-size: $size;
+  color: $color;
+}
+
+.banner {
+  &-img {
+    img {
+      width: 100%;
+
+      @media (max-width: 768px) {
+        min-height: 450px;
+        object-fit: cover;
+      }
+    }
+  }
+
+  &-header {
+    position: absolute;
+    top: 350px;
+    left: 0;
+    right: 0;
+
+    @media (max-width: 1200px) {
+      top: 150px;
+    }
+  }
+}
+
+@media (max-width: 768px) {}
+
+@mixin font {
+  font-family: $f3;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+}
+
+@mixin fonts($ff, $fw, $fz, $lh) {
+  font-family: $ff;
+  font-weight: $fw;
+  font-size: $fz;
+  line-height: $lh;
+}
+
+
+body {
+  background: $bg ;
+  color: $color1;
+}
+
+.header-top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 0 50px;
+  z-index: 5;
+  // background: rgba($color: $bg, $alpha: 0.1);
+  // opacity: 2;
+  background: $bg;
+  box-shadow: 1px 1px 5px #FFFFFF;
+
+  @media (max-width: 768px) {
+    padding: 0 15px;
+  }
+}
+
+
+.navbar__container {
+  @include flex(flex, space-between, center);
+  height: 60px;
+
+  & span {
+    color: $color1;
+  }
+
+}
+
+
+.navbar__brand {
+  font-family: ChronicleDisp;
+  font-size: 32px;
+  line-height: 38px;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+
+  @media (max-width: 575px) {
+    font-size: 17px;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.navbar__link {
+  @include font();
+
+  @media (max-width: 575px) {
+    font-size: 14px;
+  }
+}
+
+.navbar__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @media (max-width: 575px) {
+    flex-wrap: wrap;
+  }
+}
+
+.navbar__nav {
+  display: flex;
+  align-items: center;
+  font-family: $f3;
+  font-size: 17px;
+  line-height: 21px;
+  font-weight: 700;
+
+  @media (max-width: 575px) {
+    font-size: 14px;
+  }
+}
+
+.nav-link {
+  text-decoration: none;
+
+  & span:hover {
+    color: $color2;
+    transition: 0.5s;
+  }
+}
+
+.menu {
+  padding-right: 40px;
+
+  &:last-child {
+    padding: 0;
+  }
+
+  @media (max-width: 575px) {
+    padding-right: 10px;
+  }
+}
+
+.account__img {
+  padding-right: 10px;
+}
+
+//section header
+.banner-header.row {
+  max-width: 974px;
+}
+
+.subtitle {
+  @include fonts($f3, 700, 18px, 22px);
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: $color2;
+  display: inline-block;
+
+  &:before {
+    content: "";
+    display: inline-block;
+    width: 72px;
+    height: 2px;
+    background-color: $color2;
+    margin-bottom: 5px;
+    margin-right: 10px;
+  }
+
+  @media (max-width: 768px) {
+    @include fonts($f3, 700, 14px, 18px);
+    letter-spacing: 2px;
+
+    &:hover {
+      width: 24px;
+      height: 1px;
+      background-color: $color2;
+      margin-bottom: 2px;
+      margin-right: 5px;
+    }
+  }
+}
+
+.title {
+  @include fonts($f2, 400, 88px, 100px);
+  text-transform: capitalize;
+  padding: 30px 0;
+
+  text-shadow: 5px 3px #0B1D26;
+
+  @media (max-width: 1200px) {
+    font-size: 40px;
+    line-height: 1.2;
+  }
+
+  @media (max-width: 768px) {
+    @include fonts($f2, 400, 30px, 40px);
+  }
+}
+
+.scroll {
+
+
+
+  img {
+    padding: 0 0 0 10px;
+  }
+
+  span {
+    @include fonts($f3, 700, 18px, 22px);
+    color: $color1;
+    text-shadow: 2px 1px #0B1D26;
+  }
+}
+
+// section about
+.about {
+  margin-top: -200px;
+
+  @media (max-width: 768px) {
+    margin-top: 50px;
+  }
+}
+
+
+.first-column__title {
+  @include fonts($f2, 400, 64px, 77px);
+  margin: 27px 0;
+
+  @media (max-width: 1200px) {
+    @include fonts($f2, 400, 32px, 37px);
+    margin: 17px 0;
+  }
+}
+
+
+.align-center {
+  align-items: center;
+
+}
+
+.about-img {
+  width: 100%;
+
+  img {
+    width: 100%;
+  }
+}
+
+.paragraph {
+  @include fonts($f3, 700, 18px, 32px);
+
+  padding: 0 0 20px 0;
+
+  @media (max-width: 768px) {
+    @include fonts($f3, 400, 14px, 22px);
+    padding: 0 0 10px 0;
+  }
+}
+
+.more {
+  img {
+    padding-top: 5px;
+  }
+
+  span {
+    @include fonts($f3, 700, 18px, 22px);
+    color: $color2;
+    display: inline-block;
+    padding-right: 16px;
+
+    &:hover {
+      opacity: .8;
+      transition: .3s;
+    }
+  }
+
+}
+
+.column,
+.footer {
+  margin-bottom: 200px;
+
+  @media (max-width: 768px) {
+    margin-bottom: 50px;
+  }
+}
+
+.second-column {
+  .row {
+    flex-direction: row-reverse;
+  }
+}
+
+.text {
+  max-width: 635px;
+  padding: 80px 0 0 140px;
+
+  @media (max-width: 1200px) {
+    padding: 40px 0 0 71px;
+  }
+
+  @media (max-width: 768px) {
+    margin-bottom: 30px;
+  }
+}
+
+.about {
+  .row {
+    position: relative;
+  }
+}
+
+.absolute {
+  @include fonts($f3, 700, 240px, 240px);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  color: $color1;
+  opacity: 0.1;
+
+  @media (max-width: 1200px) {
+    font-size: 150px;
+  }
+}
+
+// footer
+.footer__logo {
+  @include fonts($f1, 400, 32px, 38px);
+  letter-spacing: 0.01em;
+  padding: 0 0 24px 0;
+}
+
+.paragraph__footer {
+  @include fonts($f3, 700, 18px, 32px);
+  color: $color1;
+  padding: 0 0 122px 0;
+}
+
+.footer__info {
+  @include fonts($f3, 500, 18px, 32px);
+  opacity: 0.5;
+}
+
+.title__footer {
+  @include fonts($f3, 700, 24px, 32px);
+  color: $color2;
+  padding: 0 0 24px 0;
+}
+
+
+.links__footer {
+  p {
+    padding: 0 0 16px 0;
+  }
+
+  span {
+    @include fonts($f3, 500, 18px, 32px);
+    color: $color1;
+
+    &:hover {
+      color: $color2;
+      opacity: .5;
+      transition: .2s;
+    }
+  }
+}
+
+.container-fluid,
+.header-top nav {
+  @media (min-width: 2000px) {
+    max-width: 1700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
